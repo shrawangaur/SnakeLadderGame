@@ -17,3 +17,5 @@ out/production/SnakeLadderGame/com/game/domain/PlayerOne.class
 out/production/SnakeLadderGame/com/game/domain/PlayerTwo.class
 out/production/SnakeLadderGame/com/game/literals/GameLiterals.class
 out/production/SnakeLadderGame/com/game/domain/PlayerFactory.class
+out/test/SnakeLadderGame/com/game/domain/GamingBoardTest.class
+out/test/SnakeLadderGame/com/game/domain/PlayerTest.class
