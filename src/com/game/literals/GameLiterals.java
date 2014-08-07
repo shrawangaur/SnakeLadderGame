@@ -34,4 +34,8 @@ public class GameLiterals {
 
     public static final int NO_MOVEMENT_IF_TOTAL_OF_DICE = 18;
 
+    public static final String FIRST_PLAYER = "PlayerOne";
+
+    public static final String SECOND_PLAYER = "PlayerTwo";
+
 }

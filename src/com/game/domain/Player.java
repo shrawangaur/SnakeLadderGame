@@ -55,7 +55,6 @@ public abstract class Player {
                return 0;
             }
           }while(diceNumber == GameLiterals.CHANCE_ALLOWED);
-
         return  diceNumber;
     }
 }
