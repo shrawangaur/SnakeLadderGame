@@ -1,17 +1,24 @@
 import com.game.domain.GamingBoard;
 import com.game.domain.Player;
 import com.game.literals.GameLiterals;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
+
+import static org.junit.Assert.assertEquals;
 
 public class SnakeAndLadderGameTest {
 
     GamingBoard gamingBoard;
     List<Player> players = new ArrayList<Player>();
+    private final ByteArrayOutputStream sysOutBegin = new ByteArrayOutputStream();
+    private final ByteArrayOutputStream sysOutEnd = new ByteArrayOutputStream();
+
+
 
     @Before
     public void setUp() throws Exception {
@@ -19,6 +26,9 @@ public class SnakeAndLadderGameTest {
         gamingBoard = new GamingBoard();
         players.add(new Player(GameLiterals.FIRST_PLAYER));
         players.add(new Player(GameLiterals.SECOND_PLAYER));
+
+        System.setOut(new PrintStream(sysOutBegin).append("--Game Begins--"));
+        System.setOut(new PrintStream(sysOutEnd).append("--Game Ends--"));
 
     }
 
@@ -29,7 +39,7 @@ public class SnakeAndLadderGameTest {
          SnakeAndLadderGame snakeAndLadderGame = new SnakeAndLadderGame();
 
         //Then
-        Assert.assertEquals(gamingBoard.getLadderBaseToUpMap(), snakeAndLadderGame.gamingBoard.getLadderBaseToUpMap());
+        assertEquals(gamingBoard.getLadderBaseToUpMap(), snakeAndLadderGame.gamingBoard.getLadderBaseToUpMap());
 
     }
 
@@ -40,7 +50,7 @@ public class SnakeAndLadderGameTest {
         SnakeAndLadderGame snakeAndLadderGame = new SnakeAndLadderGame();
 
         //Then
-        Assert.assertEquals(gamingBoard.getSnakeHeadToTailMap(), snakeAndLadderGame.gamingBoard.getSnakeHeadToTailMap());
+        assertEquals(gamingBoard.getSnakeHeadToTailMap(), snakeAndLadderGame.gamingBoard.getSnakeHeadToTailMap());
 
     }
 
@@ -51,25 +61,23 @@ public class SnakeAndLadderGameTest {
         SnakeAndLadderGame snakeAndLadderGame = new SnakeAndLadderGame();
 
         //Then
-        Assert.assertEquals(gamingBoard.getBoardNumbers(), snakeAndLadderGame.gamingBoard.getBoardNumbers());
+        assertEquals(gamingBoard.getBoardNumbers(), snakeAndLadderGame.gamingBoard.getBoardNumbers());
 
     }
 
     @Test
-    public void  return_true_if_any_player_won_in_game(){
-        //Given
+    public void  should_print_end_game_when_player_won(){
 
-        //When
-       /* SnakeAndLadderGame snakeAndLadderGame = new SnakeAndLadderGame();
-        setFinishPointCondtionInPlayerOne();
-        boolean actualOutput = snakeAndLadderGame.checkIfAnyPlayerHasWon();*/
-
-        //boolean actualCondition = snakeAndLadderGame.checkIfAnyPlayerHasWon();
-        //Then
+        assertEquals("--Game Ends--", sysOutEnd.toString());
 
     }
 
+    @Test
+    public void  should_print_start_game_when_game_starts(){
 
+        assertEquals("--Game Begins--", sysOutBegin.toString());
+
+    }
 
 }
 

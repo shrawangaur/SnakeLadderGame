@@ -99,7 +99,7 @@ public class PlayerTest {
     public void should_stay_in_same_position_if_player_hits_threshold_count() {
 
         //Given
-        Player player = new PartialPlayerTest(6);
+        Player player = new PartialPlayerTestWithFixedRandomGenerator(6);
         //When
         int diceNumber = player.rollDice();
 
@@ -108,11 +108,21 @@ public class PlayerTest {
     }
 
 
-    private class PartialPlayerTest extends Player {
+    @Test
+    public void should_be_allowed_a_second_chance_if_player_hits_six_on_dice(){
+        //Given
+        Player player = new PartialPlayerTestWithRandomGenerator(6,3);
+        //When
+        int diceNumber  = player.rollDice();
+        //Then
+        assertThat(diceNumber,is(9));
+    }
+
+    private class PartialPlayerTestWithFixedRandomGenerator extends Player {
 
         private int diceNumber;
 
-        private PartialPlayerTest(int diceNumber) {
+        private PartialPlayerTestWithFixedRandomGenerator(int diceNumber) {
             this.diceNumber = diceNumber;
         }
 
@@ -121,9 +131,28 @@ public class PlayerTest {
 
             return diceNumber;
         }
+    }
 
-        public void setDiceNumber(int diceNumber) {
-            this.diceNumber = diceNumber;
+    private class PartialPlayerTestWithRandomGenerator extends Player {
+
+        private int firstDiceNumber;
+        private int secondDiceNumber;
+        private boolean isFirstTimeToRollDice;  //We are going to return 6 for first time . for next chance, return number less than 6
+
+        private PartialPlayerTestWithRandomGenerator(int firstDiceNumber,int secondDiceNumber) {
+            this.firstDiceNumber = firstDiceNumber;
+            this.secondDiceNumber = secondDiceNumber;
+            isFirstTimeToRollDice = true;
+        }
+
+        @Override
+        protected int generateRandomNumber() {
+            if(isFirstTimeToRollDice) {
+                isFirstTimeToRollDice = false;
+                return firstDiceNumber;
+            }else {
+                return secondDiceNumber;
+            }
         }
     }
 }
