@@ -1,13 +1,12 @@
 package com.game.domain;
 
+import com.game.literals.GameLiterals;
+
 public class PlayerTwo extends Player {
 
     public PlayerTwo(){
-        setPosition(0);
-        setPlayerName();
+        setPosition(GameLiterals.START_POINT);
+        setPlayerName("PlayerTwo");
     }
 
-    public void setPlayerName(){
-        playerName = "PlayerTwo";
-    }
 }

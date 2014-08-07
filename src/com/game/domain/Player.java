@@ -10,6 +10,10 @@ public abstract class Player {
         return this.playerName;
     }
 
+    public void setPlayerName(String playerName) {
+        this.playerName = playerName;
+    }
+
     protected int position;
 
     public int getPosition(){
