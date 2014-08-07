@@ -19,3 +19,4 @@ out/production/SnakeLadderGame/com/game/literals/GameLiterals.class
 out/production/SnakeLadderGame/com/game/domain/PlayerFactory.class
 out/test/SnakeLadderGame/com/game/domain/GamingBoardTest.class
 out/test/SnakeLadderGame/com/game/domain/PlayerTest.class
+*.class
