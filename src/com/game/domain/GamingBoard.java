@@ -48,4 +48,7 @@ public class GamingBoard {
         return snakeHeadToTailMap;
     }
 
+    protected List<Integer> getBoardNumbers() {
+        return boardNumbers;
+    }
 }

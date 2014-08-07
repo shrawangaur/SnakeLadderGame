@@ -8,5 +8,4 @@ public class PlayerTwo extends Player {
         setPosition(GameLiterals.START_POINT);
         setPlayerName("PlayerTwo");
     }
-
 }

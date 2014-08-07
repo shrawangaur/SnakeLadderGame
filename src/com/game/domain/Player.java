@@ -53,12 +53,16 @@ public abstract class Player {
     public int rollDice() {
         int diceNumber = 0;
             do{
-            diceNumber+=(Math.random()*6 )+1;
+            diceNumber+= generateRandomNumber();
             if(diceNumber == GameLiterals.NO_MOVEMENT_IF_TOTAL_OF_DICE_BECOMES_THRESHOLD){
                 System.out.println("Player " + getPlayerName() + " hits maximum number " + " No Change In Position As Dice Number Will Now Be 0");
                return 0;
             }
           }while(diceNumber == GameLiterals.CHANCE_ALLOWED);
         return  diceNumber;
+    }
+
+    protected int generateRandomNumber() {
+        return (int)(Math.random()*6 )+1;
     }
 }
