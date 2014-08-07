@@ -18,9 +18,7 @@ public class SnakeAndLadderGame {
     }
 
     public void playGame(){
-
-        System.out.println(" --Game Begins--");
-
+        System.out.println("--Game Begins--");
         do{
             for (Player player : players) {
                 System.out.println(" Chance For --> " + player.getPlayerName());
@@ -30,10 +28,10 @@ public class SnakeAndLadderGame {
           }
         }while (!checkIfAnyPlayerHasWon());
 
-        System.out.println(" --Game Ends--");
+        System.out.println("--Game Ends--");
     }
 
-    public boolean checkIfAnyPlayerHasWon() {
+    private boolean checkIfAnyPlayerHasWon() {
         for (Player player : players) {
            if(player.isWon()) return true;
         }

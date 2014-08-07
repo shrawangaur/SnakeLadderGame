@@ -83,7 +83,7 @@ public class PlayerTest {
 
     }
 
-   @Test
+    @Test
     public void should_never_generate_random_number_more_than_six() {
         //Given
         int numberOneMoreThanAllowedLimit = 7;
@@ -93,5 +93,37 @@ public class PlayerTest {
         boolean isDiceNumberLessThanMaxLimit = (diceNumber < numberOneMoreThanAllowedLimit);
         assertThat(true, is(isDiceNumberLessThanMaxLimit));
 
+    }
+
+    @Test
+    public void should_stay_in_same_position_if_player_hits_threshold_count() {
+
+        //Given
+        Player player = new PartialPlayerTest(6);
+        //When
+        int diceNumber = player.rollDice();
+
+        //Then
+        assertThat(diceNumber, is(0));
+    }
+
+
+    private class PartialPlayerTest extends Player {
+
+        private int diceNumber;
+
+        private PartialPlayerTest(int diceNumber) {
+            this.diceNumber = diceNumber;
+        }
+
+        @Override
+        protected int generateRandomNumber() {
+
+            return diceNumber;
+        }
+
+        public void setDiceNumber(int diceNumber) {
+            this.diceNumber = diceNumber;
+        }
     }
 }

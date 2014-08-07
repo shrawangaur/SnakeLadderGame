@@ -6,6 +6,10 @@ public class Player {
 
     protected String playerName;
 
+    protected int position;
+
+    Player(){}
+
     public Player(String playerName) {
         this.playerName = playerName;
         this.position = GameLiterals.START_POINT;
@@ -14,12 +18,6 @@ public class Player {
     public String getPlayerName(){
         return this.playerName;
     }
-
-    public void setPlayerName(String playerName) {
-        this.playerName = playerName;
-    }
-
-    protected int position;
 
     public int getPosition(){
         return this.position;
@@ -63,7 +61,7 @@ public class Player {
                 System.out.println("Player Playing -->" + getPlayerName() + " hits maximum number " + " No Change In Position As Dice Number Will Now Be 0");
                return 0;
             }
-          }while(diceNumber == GameLiterals.CHANCE_ALLOWED);
+          }while(diceNumber%GameLiterals.CHANCE_ALLOWED==0);
         return  diceNumber;
     }
 
