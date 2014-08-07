@@ -38,7 +38,7 @@ public class SnakeAndLadderGame {
         return false;
     }
 
-    private void setNewPositionAsPerDiceNumber(int diceNumber, Player player) {
+    protected void setNewPositionAsPerDiceNumber(int diceNumber, Player player) {
 
         player.setPosition(player.getPosition() + diceNumber);
 

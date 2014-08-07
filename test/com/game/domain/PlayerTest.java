@@ -104,18 +104,30 @@ public class PlayerTest {
         int diceNumber = player.rollDice();
 
         //Then
-        assertThat(diceNumber, is(0));
+        Assert.assertEquals(0,diceNumber);
     }
 
 
     @Test
     public void should_be_allowed_a_second_chance_if_player_hits_six_on_dice(){
         //Given
-        Player player = new PartialPlayerTestWithRandomGenerator(6,3);
+        Player player = new PartialPlayerTestWithRandomGenerator(6,4);
         //When
         int diceNumber  = player.rollDice();
         //Then
-        assertThat(diceNumber,is(9));
+        Assert.assertEquals(10,diceNumber);
+    }
+
+    @Test
+    public void player_should_move_in_accordance_with_dice_number_he_hits(){
+        //Given
+            Player player = new PartialPlayerTestWithFixedRandomGenerator(2);
+            player.setPosition(1);
+        //When
+            int diceNumber = player.rollDice();
+            player.setPosition(player.getPosition()+diceNumber);
+        //Then
+           Assert.assertEquals(3,player.getPosition());
     }
 
     private class PartialPlayerTestWithFixedRandomGenerator extends Player {
