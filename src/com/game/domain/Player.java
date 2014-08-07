@@ -2,9 +2,14 @@ package com.game.domain;
 
 import com.game.literals.GameLiterals;
 
-public abstract class Player {
+public class Player {
 
     protected String playerName;
+
+    public Player(String playerName) {
+        this.playerName = playerName;
+        this.position = GameLiterals.START_POINT;
+    }
 
     public String getPlayerName(){
         return this.playerName;
@@ -55,7 +60,7 @@ public abstract class Player {
             do{
             diceNumber+= generateRandomNumber();
             if(diceNumber == GameLiterals.NO_MOVEMENT_IF_TOTAL_OF_DICE_BECOMES_THRESHOLD){
-                System.out.println("Player " + getPlayerName() + " hits maximum number " + " No Change In Position As Dice Number Will Now Be 0");
+                System.out.println("Player Playing -->" + getPlayerName() + " hits maximum number " + " No Change In Position As Dice Number Will Now Be 0");
                return 0;
             }
           }while(diceNumber == GameLiterals.CHANCE_ALLOWED);
