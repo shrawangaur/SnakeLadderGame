@@ -35,8 +35,8 @@ public abstract class Player {
     }
 
     public boolean isWon() {
-        if(this.getPosition()>=(GameLiterals.BOARD_HORIZONTAL_LENGTH*GameLiterals.BOARD_VERTICAL_LENGTH)){
-            System.out.println("PlayerTwo Position "+ this.getPosition() + " Won ");
+        if(this.getPosition()>=(GameLiterals.BOARD_HORIZONTAL_LENGTH * GameLiterals.BOARD_VERTICAL_LENGTH)){
+            System.out.println("Player " +getPlayerName() +" With Position "+ this.getPosition() + "  has Won!! ");
             return true;
         }
         return false;
@@ -50,8 +50,8 @@ public abstract class Player {
         int diceNumber = 0;
             do{
             diceNumber+=(Math.random()*6 )+1;
-            if(diceNumber == GameLiterals.NO_MOVEMENT_IF_TOTAL_OF_DICE){
-                System.out.println("Player "+getPlayerName()+ " hits maximum number "+ " No Change In Position As Dice Number Will Now Be 0");
+            if(diceNumber == GameLiterals.NO_MOVEMENT_IF_TOTAL_OF_DICE_BECOMES_THRESHOLD){
+                System.out.println("Player " + getPlayerName() + " hits maximum number " + " No Change In Position As Dice Number Will Now Be 0");
                return 0;
             }
           }while(diceNumber == GameLiterals.CHANCE_ALLOWED);

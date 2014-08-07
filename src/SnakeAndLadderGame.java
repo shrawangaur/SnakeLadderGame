@@ -19,7 +19,6 @@ public class SnakeAndLadderGame {
     void playGame(){
 
         int diceNumber =0;
-
         System.out.println(" --Game Begins--");
 
         do{
@@ -28,9 +27,17 @@ public class SnakeAndLadderGame {
                     setNewPositionAsPerDiceNumber(diceNumber, player);
                     if(player.isWon()) break;
           }
-        }while (!players.get(0).isWon() && !players.get(1).isWon());
+        }while (!checkIfAnyPlayerHasWon());
 
         System.out.println(" --Game Ends--");
+    }
+
+    private boolean checkIfAnyPlayerHasWon() {
+        for (Player player : players) {
+           if(player.isWon()) return true;
+        }
+        return false;
+        //return !players.get(0).isWon() && !players.get(1).isWon();
     }
 
     private void setNewPositionAsPerDiceNumber(int diceNumber, Player player) {
@@ -43,7 +50,6 @@ public class SnakeAndLadderGame {
 
         System.out.println("Player " + player.getPlayerName() + " Position " + player.getPosition() + " Dice " + diceNumber);
     }
-
 
     //
     public static void main(String[] args){

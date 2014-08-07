@@ -32,7 +32,7 @@ public class GameLiterals {
 
     public static final int CHANCE_ALLOWED = 6;
 
-    public static final int NO_MOVEMENT_IF_TOTAL_OF_DICE = 18;
+    public static final int NO_MOVEMENT_IF_TOTAL_OF_DICE_BECOMES_THRESHOLD = 18;
 
     public static final String FIRST_PLAYER = "PlayerOne";
 
