@@ -43,11 +43,6 @@ public class GamingBoard {
         return ladderBaseToUpMap;
     }
 
-    public List<Integer> getBoardNumbers() {
-        populateBoardNumbers(GameLiterals.BOARD_HORIZONTAL_LENGTH,GameLiterals.BOARD_VERTICAL_LENGTH);
-        return boardNumbers;
-    }
-
     public Map<Integer, Integer> getSnakeHeadToTailMap() {
         populateSnakeMap();
         return snakeHeadToTailMap;

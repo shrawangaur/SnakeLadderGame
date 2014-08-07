@@ -1,14 +1,10 @@
 package com.game.literals;
 
-/**
- * Created by acer on 8/6/2014.
- */
 public class GameLiterals {
 
     public static final int BOARD_HORIZONTAL_LENGTH = 10;
 
     public static final int BOARD_VERTICAL_LENGTH = 10;
-
 
     public static final int NUMBER_OF_SNAKES_IN_GAME = 8;
 
@@ -35,4 +31,7 @@ public class GameLiterals {
                                                             };
 
     public static final int CHANCE_ALLOWED = 6;
+
+    public static final int NO_MOVEMENT_IF_TOTAL_OF_DICE = 18;
+
 }

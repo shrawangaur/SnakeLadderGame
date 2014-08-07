@@ -1,5 +1,4 @@
 import com.game.domain.*;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,40 +18,30 @@ public class SnakeAndLadderGame {
         System.out.println(" --Game Begins--");
         do{
             for (Player player : players) {
-                if (player.isChanceToRollDice(diceNumber)){
 
                     diceNumber = player.rollDice();
 
-                    player.setPosition(player.getPosition() + diceNumber);
+                    setNewPositionAsPerDiceNumber(diceNumber, player);
 
-                    setNewPositionsIfSnakeConditionIsMet(player);
+                    if(player.isWon()) break;
 
-                    setNewPositionsIfLadderConditionIsMet(player);
-
-                    System.out.println("Player " + player.getPlayerName() + " Position " + player.getPosition() + " Dice " + diceNumber);
-                }
-            }
-
+          }
         }while (!players.get(0).isWon() && !players.get(1).isWon());
+
+        System.out.println(" --Game Ends--");
     }
 
-    private void setNewPositionsIfLadderConditionIsMet(Player player) {
-        for (Integer ladderBase : gamingBoard.getLadderBaseToUpMap().keySet()){
-            if(player.getPosition() == ladderBase){
-                player.setPosition(gamingBoard.getLadderBaseToUpMap().get(ladderBase));
-                System.out.println("Ladder Condition For "+player.getPlayerName());
-            }
-        }
+    private void setNewPositionAsPerDiceNumber(int diceNumber, Player player) {
+
+        player.setPosition(player.getPosition() + diceNumber);
+
+        player.setNewPositionsIfSnakeConditionIsMet(gamingBoard);
+
+        player.setNewPositionsIfLadderConditionIsMet(gamingBoard);
+
+        System.out.println("Player " + player.getPlayerName() + " Position " + player.getPosition() + " Dice " + diceNumber);
     }
 
-    private void setNewPositionsIfSnakeConditionIsMet(Player player) {
-        for(Integer snakeHead : gamingBoard.getSnakeHeadToTailMap().keySet()){
-            if (player.getPosition() == snakeHead){
-                player.setPosition(gamingBoard.getSnakeHeadToTailMap().get(snakeHead));
-                System.out.println("Snake Condition For " + player.getPlayerName());
-            }
-        }
-    }
 
     //
     public static void main(String[] args){
