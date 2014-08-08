@@ -67,13 +67,13 @@ public class SnakeAndLadderGameTest {
         List<Player> playerList =  new ArrayList<Player>();
         Player expectedPlayerForWinning = new Player(GameLiterals.FIRST_PLAYER);
         Player secondPlayer = new Player(GameLiterals.SECOND_PLAYER);
-        expectedPlayerForWinning.setPosition(100);
+        expectedPlayerForWinning.setPosition(99);
         secondPlayer.setPosition(45);
         playerList.add(expectedPlayerForWinning);
         playerList.add(secondPlayer);
         SnakeAndLadderGame snakeAndLadderGame = new SnakeAndLadderGame();
         //When
-        Player actualWinningplayer = snakeAndLadderGame.playGame(players);
+        Player actualWinningplayer = snakeAndLadderGame.playGame(playerList);
         //Then
         Assert.assertEquals(expectedPlayerForWinning.getPlayerName(),actualWinningplayer.getPlayerName());
 
