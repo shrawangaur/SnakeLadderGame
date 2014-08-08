@@ -1,6 +1,7 @@
 import com.game.domain.GamingBoard;
 import com.game.domain.Player;
 import com.game.literals.GameLiterals;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -26,10 +27,63 @@ public class SnakeAndLadderGameTest {
         gamingBoard = new GamingBoard();
         players.add(new Player(GameLiterals.FIRST_PLAYER));
         players.add(new Player(GameLiterals.SECOND_PLAYER));
+   }
 
-        System.setOut(new PrintStream(sysOutBegin).append("--Game Begins--"));
-        System.setOut(new PrintStream(sysOutEnd).append("--Game Ends--"));
+    @Test
+    public  void should_return_true_if_any_player_won_game(){
+        //Given
+         List<Player> playerList =  new ArrayList<Player>();
+        Player player = new Player(GameLiterals.FIRST_PLAYER);
+        player.setPosition(100);
+        playerList.add(player);
 
+        //When
+         SnakeAndLadderGame snakeAndLadderGame = new SnakeAndLadderGame();
+         boolean ifGameEndsInActual = snakeAndLadderGame.checkIfAnyPlayerHasWon(playerList);
+
+        //Then
+        Assert.assertTrue(ifGameEndsInActual);
+    }
+
+    @Test
+    public  void should_return_false_if_any_player_has_not_won_game(){
+        //Given
+        List<Player> playerList =  new ArrayList<Player>();
+        Player player = new Player(GameLiterals.FIRST_PLAYER);
+        player.setPosition(65);
+        playerList.add(player);
+
+        //When
+        SnakeAndLadderGame snakeAndLadderGame = new SnakeAndLadderGame();
+        boolean ifGameEndsInActual = snakeAndLadderGame.checkIfAnyPlayerHasWon(playerList);
+
+        //Then
+        Assert.assertFalse(ifGameEndsInActual);
+    }
+
+    @Test
+    public void should_return_winning_player_if_condition_of_winning_is_met(){
+        //Given
+        List<Player> playerList =  new ArrayList<Player>();
+        Player expectedPlayerForWinning = new Player(GameLiterals.FIRST_PLAYER);
+        Player secondPlayer = new Player(GameLiterals.SECOND_PLAYER);
+        expectedPlayerForWinning.setPosition(100);
+        secondPlayer.setPosition(45);
+        playerList.add(expectedPlayerForWinning);
+        playerList.add(secondPlayer);
+        SnakeAndLadderGame snakeAndLadderGame = new SnakeAndLadderGame();
+        //When
+        Player actualWinningplayer = snakeAndLadderGame.playGame(players);
+        //Then
+        Assert.assertEquals(expectedPlayerForWinning.getPlayerName(),actualWinningplayer.getPlayerName());
+
+    }
+
+    @Test (expected = RuntimeException.class)
+    public void should_throw_exception_if_no_player_won(){
+        List<Player> playerList =  new ArrayList<Player>();
+        SnakeAndLadderGame snakeAndLadderGame = new SnakeAndLadderGame();
+        snakeAndLadderGame.playGame(playerList);
     }
 
     @Test
@@ -64,21 +118,6 @@ public class SnakeAndLadderGameTest {
         assertEquals(gamingBoard.getBoardNumbers(), snakeAndLadderGame.gamingBoard.getBoardNumbers());
 
     }
-
-    @Test
-    public void  should_print_end_game_when_player_won(){
-
-        assertEquals("--Game Ends--", sysOutEnd.toString());
-
-    }
-
-    @Test
-    public void  should_print_start_game_when_game_starts(){
-
-        assertEquals("--Game Begins--", sysOutBegin.toString());
-
-    }
-
-}
+ }
 
 
