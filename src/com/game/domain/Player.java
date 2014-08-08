@@ -7,6 +7,7 @@ public class Player {
     protected String playerName;
 
     protected int position;
+    Dice dice = new Dice();
 
     Player(){}
 
@@ -56,7 +57,7 @@ public class Player {
     public int rollDice() {
         int diceNumber = 0;
             do{
-            diceNumber+= generateRandomNumber();
+            diceNumber+= dice.roll();
             if(diceNumber == GameLiterals.NO_MOVEMENT_IF_TOTAL_OF_DICE_BECOMES_THRESHOLD){
                 System.out.println("Player Playing -->" + getPlayerName() + " hits maximum number " + " No Change In Position As Dice Number Will Now Be 0");
                return 0;
@@ -65,7 +66,7 @@ public class Player {
         return  diceNumber;
     }
 
-    protected int generateRandomNumber() {
-        return (int)(Math.random()*6 )+1;
+    public void setDice(Dice dice) {
+        this.dice = dice;
     }
 }

@@ -70,6 +70,6 @@ public class SnakeAndLadderGame {
         players.add(new Player(GameLiterals.SECOND_PLAYER));
         snakeAndLadderGame.playGame(players);
     }
- 
+
     
 }
