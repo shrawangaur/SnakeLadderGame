@@ -113,6 +113,37 @@ public class SnakeAndLadderGameTest {
         assertEquals(gamingBoard.getBoardNumbers(), snakeAndLadderGame.gamingBoard.getBoardNumbers());
 
     }
+
+    @Test
+    public void should_set_new_position_if_ladder_condition_is_met_after_rolling_dice() {
+        //Given
+        Player player = new Player();
+        player.setPosition(4);
+        int expectedNewPosition = 14;
+        SnakeAndLadderGame snakeAndLadderGame = new SnakeAndLadderGame();
+
+        //When
+        snakeAndLadderGame.setNewPositionsIfPositionSettingsConditionIsMet(gamingBoard, player);
+        //Then
+        Assert.assertEquals(expectedNewPosition, player.getPosition());
+
+    }
+
+
+    @Test
+    public void should_set_new_position_if_snake_condition_is_met_after_rolling_dice() {
+        //Given
+        Player player =  new Player();
+        player.setPosition(17);
+        int expectedNewPosition = 7;
+        SnakeAndLadderGame snakeAndLadderGame = new SnakeAndLadderGame();
+
+        //When
+        snakeAndLadderGame.setNewPositionsIfPositionSettingsConditionIsMet(gamingBoard,player);
+        //Then
+        Assert.assertEquals(expectedNewPosition, player.getPosition());
+
+    }
  }
 
 

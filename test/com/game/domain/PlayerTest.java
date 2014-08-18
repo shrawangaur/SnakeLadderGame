@@ -25,33 +25,6 @@ public class PlayerTest {
     }
 
     @Test
-    public void should_set_new_position_if_ladder_condition_is_met_after_rolling_dice() {
-        //Given
-        player.setPosition(4);
-        int expectedNewPosition = 14;
-
-        //When
-        player.setNewPositionsIfPositionSettingsConditionIsMet(gamingBoard);
-        //Then
-        Assert.assertEquals(expectedNewPosition, player.getPosition());
-
-    }
-
-
-    @Test
-    public void should_set_new_position_if_snake_condition_is_met_after_rolling_dice() {
-        //Given
-        player.setPosition(17);
-        int expectedNewPosition = 7;
-
-        //When
-        player.setNewPositionsIfPositionSettingsConditionIsMet(gamingBoard);
-        //Then
-        Assert.assertEquals(expectedNewPosition, player.getPosition());
-
-    }
-
-    @Test
     public void should_return_true_if_player_position_equals_or_exceeds_board_number() {
         //Given
         player.setPosition(100);

@@ -27,9 +27,6 @@ public class SnakeAndLadderGame {
                     return player;
             }
         }
-
-
-
         System.out.println("--Game Ends--");
         throw new RuntimeException();
     }
@@ -55,11 +52,19 @@ public class SnakeAndLadderGame {
 
         player.setPosition(player.getPosition() + diceNumber);
 
-        player.setNewPositionsIfPositionSettingsConditionIsMet(gamingBoard);
+        setNewPositionsIfPositionSettingsConditionIsMet(gamingBoard, player);
 
         System.out.println("Player Playing --> " + player.getPlayerName() + " Got Position " + player.getPosition() + " As total moves he got " + diceNumber);
     }
 
+    protected void setNewPositionsIfPositionSettingsConditionIsMet(GamingBoard gamingBoard,Player player) {
+        for(Integer positionSetting : gamingBoard.getPositionSettingsMap().keySet()){
+            if (player.getPosition() == positionSetting){
+                player.setPosition(gamingBoard.getPositionSettingsMap().get(positionSetting));
+                System.out.println("Snake/Ladder Condition For " + player.getPlayerName());
+            }
+        }
+    } 
     //Main method To Run The Program
     public static void main(String[] args){
         SnakeAndLadderGame snakeAndLadderGame = new SnakeAndLadderGame();

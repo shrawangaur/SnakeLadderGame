@@ -9,7 +9,7 @@ public class Player {
     protected int position;
     Dice dice = new Dice();
 
-    Player(){}
+    public Player(){}
 
     public Player(String playerName) {
         this.playerName = playerName;
@@ -24,16 +24,7 @@ public class Player {
         return this.position;
     }
 
-    public void setNewPositionsIfPositionSettingsConditionIsMet(GamingBoard gamingBoard) {
-        for(Integer positionSetting : gamingBoard.getPositionSettingsMap().keySet()){
-            if (this.getPosition() == positionSetting){
-                this.setPosition(gamingBoard.getPositionSettingsMap().get(positionSetting));
-                System.out.println("Snake/Ladder Condition For " + this.getPlayerName());
-            }
-        }
-    }
-
-    public boolean isWon() {
+   public boolean isWon() {
         if(this.getPosition()>=(GameLiterals.BOARD_HORIZONTAL_LENGTH * GameLiterals.BOARD_VERTICAL_LENGTH)){
             System.out.println("Player " +getPlayerName() +" With Position "+ this.getPosition() + "  has Won!! ");
             return true;

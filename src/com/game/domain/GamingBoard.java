@@ -17,14 +17,14 @@ public class GamingBoard {
         populatePositionSettingsMap();
     }
 
-    void populateBoardNumbers(int horizontalLength, int verticalLength){
+    private void populateBoardNumbers(int horizontalLength, int verticalLength){
         int totalNumbersOnBoard = horizontalLength * verticalLength;
         for (int index = 1 ; index<=totalNumbersOnBoard ; index++  ){
             boardNumbers.add(index);
         }
     }
 
-    void populatePositionSettingsMap(){
+    private void populatePositionSettingsMap(){
         for (int index=0 ; index< GameLiterals.POSITION_SETTINGS_IN_GAME.length;index++){
             positionSettingsMap.put(GameLiterals.POSITION_SETTINGS_IN_GAME[index][0], GameLiterals.POSITION_SETTINGS_IN_GAME[index][1]);
         }
