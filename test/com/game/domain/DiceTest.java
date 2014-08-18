@@ -10,12 +10,12 @@ public class DiceTest {
     @Test
     public void should_never_generate_random_number_more_than_six() {
         //Given
-        int numberOneMoreThanAllowedLimit = 7;
+        int maxNumberAllowed = 6;
         Dice dice = new Dice();
         //When
         int diceNumber = dice.roll();
         //Then
-        boolean isDiceNumberLessThanMaxLimit = (diceNumber < numberOneMoreThanAllowedLimit);
+        boolean isDiceNumberLessThanMaxLimit = (diceNumber <= maxNumberAllowed);
         assertThat(true, is(isDiceNumberLessThanMaxLimit));
 
     }

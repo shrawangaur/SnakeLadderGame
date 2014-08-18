@@ -104,17 +104,6 @@ public class SnakeAndLadderGameTest {
     }
 
     @Test
-    public void should_create_gamingboard_with_board_number_on_it_when_game_begins(){
-
-        //When
-        SnakeAndLadderGame snakeAndLadderGame = new SnakeAndLadderGame();
-
-        //Then
-        assertEquals(gamingBoard.getBoardNumbers(), snakeAndLadderGame.gamingBoard.getBoardNumbers());
-
-    }
-
-    @Test
     public void should_set_new_position_if_ladder_condition_is_met_after_rolling_dice() {
         //Given
         Player player = new Player();

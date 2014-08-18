@@ -40,20 +40,4 @@ public class GamingBoardTest {
 
     }
 
-    @Test
-    public void should_populate_board_numbers_as_provided_in_literals(){
-        //Given
-        List<Integer> boardNumbers = new ArrayList<Integer>();
-        for(int index = 1 ; index <=100; index ++){
-            boardNumbers.add(index);
-        }
-
-        //When
-        GamingBoard gamingBoard = new GamingBoard();
-
-        //Then
-        Assert.assertEquals(boardNumbers,gamingBoard.getBoardNumbers());
-    }
-
-
 }
