@@ -6,7 +6,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,10 +15,6 @@ public class SnakeAndLadderGameTest {
 
     GamingBoard gamingBoard;
     List<Player> players = new ArrayList<Player>();
-    private final ByteArrayOutputStream sysOutBegin = new ByteArrayOutputStream();
-    private final ByteArrayOutputStream sysOutEnd = new ByteArrayOutputStream();
-
-
 
     @Before
     public void setUp() throws Exception {
@@ -93,7 +88,7 @@ public class SnakeAndLadderGameTest {
          SnakeAndLadderGame snakeAndLadderGame = new SnakeAndLadderGame();
 
         //Then
-        assertEquals(gamingBoard.getLadderBaseToUpMap(), snakeAndLadderGame.gamingBoard.getLadderBaseToUpMap());
+        assertEquals(gamingBoard.getPositionSettingsMap(), snakeAndLadderGame.gamingBoard.getPositionSettingsMap());
 
     }
 
@@ -104,7 +99,7 @@ public class SnakeAndLadderGameTest {
         SnakeAndLadderGame snakeAndLadderGame = new SnakeAndLadderGame();
 
         //Then
-        assertEquals(gamingBoard.getSnakeHeadToTailMap(), snakeAndLadderGame.gamingBoard.getSnakeHeadToTailMap());
+        assertEquals(gamingBoard.getPositionSettingsMap(), snakeAndLadderGame.gamingBoard.getPositionSettingsMap());
 
     }
 

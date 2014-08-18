@@ -31,7 +31,7 @@ public class PlayerTest {
         int expectedNewPosition = 14;
 
         //When
-        player.setNewPositionsIfLadderConditionIsMet(gamingBoard);
+        player.setNewPositionsIfPositionSettingsConditionIsMet(gamingBoard);
         //Then
         Assert.assertEquals(expectedNewPosition, player.getPosition());
 
@@ -45,7 +45,7 @@ public class PlayerTest {
         int expectedNewPosition = 7;
 
         //When
-        player.setNewPositionsIfSnakeConditionIsMet(gamingBoard);
+        player.setNewPositionsIfPositionSettingsConditionIsMet(gamingBoard);
         //Then
         Assert.assertEquals(expectedNewPosition, player.getPosition());
 

@@ -11,45 +11,32 @@ import java.util.Map;
 public class GamingBoardTest {
 
     @Test
-    public void should_populate_snakeMap_as_provided_in_literals(){
+    public void should_populate_positionSettingMap_as_provided_in_literals(){
         //Given
-        Map<Integer,Integer> expectedPositionOfSnakeMap =  new HashMap<Integer, Integer>();
-        expectedPositionOfSnakeMap.put(17,7);
-        expectedPositionOfSnakeMap.put(54,34);
-        expectedPositionOfSnakeMap.put(62,19);
-        expectedPositionOfSnakeMap.put(64,60);
-        expectedPositionOfSnakeMap.put(87,24);
-        expectedPositionOfSnakeMap.put(93,73);
-        expectedPositionOfSnakeMap.put(95,75);
-        expectedPositionOfSnakeMap.put(99,78);
+        Map<Integer,Integer> expectedPositionSettingsMap =  new HashMap<Integer, Integer>();
+        expectedPositionSettingsMap.put(17, 7);
+        expectedPositionSettingsMap.put(54, 34);
+        expectedPositionSettingsMap.put(62, 19);
+        expectedPositionSettingsMap.put(64, 60);
+        expectedPositionSettingsMap.put(87, 24);
+        expectedPositionSettingsMap.put(93, 73);
+        expectedPositionSettingsMap.put(95, 75);
+        expectedPositionSettingsMap.put(99, 78);
+        expectedPositionSettingsMap.put(4,14);
+        expectedPositionSettingsMap.put(9,31);
+        expectedPositionSettingsMap.put(20,38);
+        expectedPositionSettingsMap.put(28,84);
+        expectedPositionSettingsMap.put(40,59);
+        expectedPositionSettingsMap.put(51,67);
+        expectedPositionSettingsMap.put(63,81);
+        expectedPositionSettingsMap.put(71,91);
 
         //When
         GamingBoard gamingBoard = new GamingBoard();
 
         //Then
-        Assert.assertEquals(expectedPositionOfSnakeMap, gamingBoard.getSnakeHeadToTailMap());
+        Assert.assertEquals(expectedPositionSettingsMap, gamingBoard.getPositionSettingsMap());
 
-
-    }
-
-    @Test
-    public void should_populate_ladderMap_as_provided_in_literals(){
-        //Given
-        Map<Integer,Integer> expectedPositionOfLadderMap =  new HashMap<Integer, Integer>();
-        expectedPositionOfLadderMap.put(4,14);
-        expectedPositionOfLadderMap.put(9,31);
-        expectedPositionOfLadderMap.put(20,38);
-        expectedPositionOfLadderMap.put(28,84);
-        expectedPositionOfLadderMap.put(40,59);
-        expectedPositionOfLadderMap.put(51,67);
-        expectedPositionOfLadderMap.put(63,81);
-        expectedPositionOfLadderMap.put(71,91);
-
-        //When
-        GamingBoard gamingBoard = new GamingBoard();
-
-        //Then
-        Assert.assertEquals(expectedPositionOfLadderMap, gamingBoard.getLadderBaseToUpMap());
 
     }
 

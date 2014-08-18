@@ -24,20 +24,11 @@ public class Player {
         return this.position;
     }
 
-    public void setNewPositionsIfLadderConditionIsMet(GamingBoard gamingBoard) {
-        for (Integer ladderBase : gamingBoard.getLadderBaseToUpMap().keySet()){
-            if(this.getPosition() == ladderBase){
-                this.setPosition(gamingBoard.getLadderBaseToUpMap().get(ladderBase));
-                System.out.println("Ladder Condition For "+this.getPlayerName());
-            }
-        }
-    }
-
-    public void setNewPositionsIfSnakeConditionIsMet(GamingBoard gamingBoard) {
-        for(Integer snakeHead : gamingBoard.getSnakeHeadToTailMap().keySet()){
-            if (this.getPosition() == snakeHead){
-                this.setPosition(gamingBoard.getSnakeHeadToTailMap().get(snakeHead));
-                System.out.println("Snake Condition For " + this.getPlayerName());
+    public void setNewPositionsIfPositionSettingsConditionIsMet(GamingBoard gamingBoard) {
+        for(Integer positionSetting : gamingBoard.getPositionSettingsMap().keySet()){
+            if (this.getPosition() == positionSetting){
+                this.setPosition(gamingBoard.getPositionSettingsMap().get(positionSetting));
+                System.out.println("Snake/Ladder Condition For " + this.getPlayerName());
             }
         }
     }

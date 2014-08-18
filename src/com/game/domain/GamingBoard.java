@@ -10,13 +10,11 @@ import java.util.Map;
 public class GamingBoard {
 
     List<Integer> boardNumbers = new ArrayList<Integer>();
-    Map<Integer,Integer> snakeHeadToTailMap = new HashMap<Integer, Integer>();
-    Map<Integer,Integer> ladderBaseToUpMap = new HashMap<Integer, Integer>();
+    Map<Integer,Integer> positionSettingsMap = new HashMap<Integer, Integer>();
 
     public GamingBoard(){
-        populateBoardNumbers(GameLiterals.BOARD_HORIZONTAL_LENGTH,GameLiterals.BOARD_VERTICAL_LENGTH);
-        populateSnakeMap();
-        populateLadderMap();
+        populateBoardNumbers(GameLiterals.BOARD_HORIZONTAL_LENGTH, GameLiterals.BOARD_VERTICAL_LENGTH);
+        populatePositionSettingsMap();
     }
 
     void populateBoardNumbers(int horizontalLength, int verticalLength){
@@ -26,26 +24,15 @@ public class GamingBoard {
         }
     }
 
-    void populateSnakeMap(){
-        for (int index=0 ; index< GameLiterals.NUMBER_OF_SNAKES_IN_GAME;index++){
-            snakeHeadToTailMap.put(GameLiterals.POSITION_OF_SNAKES_IN_GAME[index][0],GameLiterals.POSITION_OF_SNAKES_IN_GAME[index][1]);
+    void populatePositionSettingsMap(){
+        for (int index=0 ; index< GameLiterals.POSITION_SETTINGS_IN_GAME.length;index++){
+            positionSettingsMap.put(GameLiterals.POSITION_SETTINGS_IN_GAME[index][0], GameLiterals.POSITION_SETTINGS_IN_GAME[index][1]);
         }
     }
 
-    void populateLadderMap(){
-        for (int index = 0; index<GameLiterals.NUMBER_OF_LADDERS_IN_GAME ;index++){
-            ladderBaseToUpMap.put(GameLiterals.POSITION_OF_LADDER_IN_GAME[index][0],GameLiterals.POSITION_OF_LADDER_IN_GAME[index][1]);
-        }
-    }
-
-    public Map<Integer, Integer> getLadderBaseToUpMap() {
-        populateLadderMap();
-        return ladderBaseToUpMap;
-    }
-
-    public Map<Integer, Integer> getSnakeHeadToTailMap() {
-        populateSnakeMap();
-        return snakeHeadToTailMap;
+    public Map<Integer, Integer> getPositionSettingsMap() {
+        populatePositionSettingsMap();
+        return positionSettingsMap;
     }
 
     public List<Integer> getBoardNumbers() {

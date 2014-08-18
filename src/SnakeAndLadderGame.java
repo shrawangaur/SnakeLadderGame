@@ -55,9 +55,7 @@ public class SnakeAndLadderGame {
 
         player.setPosition(player.getPosition() + diceNumber);
 
-        player.setNewPositionsIfSnakeConditionIsMet(gamingBoard);
-
-        player.setNewPositionsIfLadderConditionIsMet(gamingBoard);
+        player.setNewPositionsIfPositionSettingsConditionIsMet(gamingBoard);
 
         System.out.println("Player Playing --> " + player.getPlayerName() + " Got Position " + player.getPosition() + " As total moves he got " + diceNumber);
     }
